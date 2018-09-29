@@ -107,7 +107,7 @@ bool tuntapItfCreate(tuntap_itf_opts_t &opts, int *fd, std::string *err) {
 	ifreqPrep(&ifr, opts.itf_name.c_str());
 	
 	if(opts.mode == tuntap_itf_opts_t::MODE_TUN)
-		ifr.ifr_flags |= IFF_TUN;
+		ifr.ifr_flags |= IFF_TUN | IFF_NO_PI;
 	else if(opts.mode == tuntap_itf_opts_t::MODE_TAP)
 		ifr.ifr_flags |= IFF_TAP;
 	
